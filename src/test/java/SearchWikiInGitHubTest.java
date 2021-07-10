@@ -43,7 +43,7 @@ public class SearchWikiInGitHubTest {
 
         softAssertions.should(exist);
 
-        if (softAssertions.isDisplayed() == false) {
+        if (!(softAssertions.isDisplayed())) {
             $("#wiki-pages-box").$(withText("Show 1 more pages…"))
                     .scrollIntoView(true)
                     .click();
