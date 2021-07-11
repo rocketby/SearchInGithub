@@ -19,7 +19,7 @@ public class SearchWikiInGitHubTest {
     }
 
     @Test
-    void shouldFindWikiInGitHub() {
+    void shouldFindSoftAssertionsInWikiInGitHub() {
         String exampleJUnit5 = "@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
                 "  @Test\n" +
