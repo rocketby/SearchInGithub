@@ -1,3 +1,5 @@
+package github;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
@@ -33,18 +35,16 @@ public class SearchWikiInGitHubTest {
 
         open("/selenide/selenide");
 
-        //find Wiki link
         $(byText("Wiki")).closest("a").click();
 
-        //check, that welcome Wiki caption is displayed
-        $("#user-content-welcome-to-the-selenide-wiki").shouldBe(visible);
+        $(byText("Welcome to the selenide wiki!")).shouldBe(visible);
 
         SelenideElement softAssertions = $("#wiki-pages-box").$(byText("SoftAssertions"));
 
         softAssertions.should(exist);
 
         if (!(softAssertions.isDisplayed())) {
-            $("#wiki-pages-box").$(withText("Show 1 more pages…"))
+            $("#wiki-pages-box").$(withText("Show"))
                     .scrollIntoView(true)
                     .click();
         }
@@ -52,12 +52,14 @@ public class SearchWikiInGitHubTest {
         softAssertions.shouldBe(visible);
         softAssertions.click();
 
-        $x("//h1[text()='SoftAssertions']").shouldBe(visible);
+        $(byText("How to soft assert using Selenide")).shouldBe(visible);
+
         $(byText("Using JUnit5 extend test class:"))
                 .parent()
                 .sibling(0)
                 .$("pre")
                 .shouldHave(text(exampleJUnit5));
+
 
     }
 }
