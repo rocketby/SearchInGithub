@@ -11,7 +11,6 @@ public class HerokuDragAndDropTest {
     @BeforeAll
     static void setup() {
         Configuration.baseUrl = "https://the-internet.herokuapp.com";
-        Configuration.startMaximized = true;
     }
 
 
@@ -22,7 +21,6 @@ public class HerokuDragAndDropTest {
 
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
-
     }
 }
 
